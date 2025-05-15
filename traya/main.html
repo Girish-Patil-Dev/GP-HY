@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Astrokumba Life</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">Astrokumba Life</div>
+    <button class="cta-button">TAKE THE HAIR TEST™</button>
+  </header>
+
+  <main class="main-section">
+    <div class="text-content">
+      <h2>Science-Led<br>Hair Growth Solutions</h2>
+      <h1>Know The Root Cause<br>Of Your Hair Problems</h1>
+      <p class="results">93% SAW RESULTS* IN 5 MONTHS</p>
+      <button class="main-button">TAKE THE HAIR TEST™</button>
+    </div>
+
+    <div class="image-section">
+      <img src="couple.png" alt="Happy couple" class="hero-image" />
+      <div class="rating-badge">
+        <img src="google.png" alt="Google logo" class="google-icon" />
+        <div class="stars"><span>4.5</span> ★★★★★</div>
+        <div class="reviews">21,553+ reviews</div>
+      </div>
+    </div>
+  </main>
+
+  <section class="media-logos">
+    <div class="scrolling-wrapper">
+      <img src="https://cdn.shopify.com/s/files/1/0100/1622/7394/files/009_e3baaf5f-4d89-4a8e-95f2-be304d03723a_130x.jpg?v=1663237097" alt="Deccan Chronicle" />
+      <img src="https://cdn.shopify.com/s/files/1/0100/1622/7394/files/008_b322bc9e-feee-43ec-9bc1-cb9d2d59bd1d_130x.png?v=1663237099" alt="Cosmopolitan" />
+      <img src="https://cdn.shopify.com/s/files/1/0100/1622/7394/files/002_f8c34892-cd1a-4e7f-84e7-4fdfe1b98150_180x.png?v=1663237097" alt="Dailyhunt" />
+      <img src="https://cdn.shopify.com/s/files/1/0100/1622/7394/files/003_45350490-3f83-4360-aad7-1dd5d44bdba2_180x.png?v=1663237097" alt="Hindustan Times" />
+    </div>
+  </section>
+<div class="carousel-container">
+  <div class="main-carousel" id="testimonialCarousel">
+
+<div class="main-carousel">
+  <div class="testimonial" onclick="openModal(0)">
+    <div class="video-card">
+      <img src="couple.png" alt="Video 1" class="video-thumbnail">
+      <div class="play-button">&#9658;</div>
+      <div class="views-overlay">
+        <span class="eye-icon">👁</span> 749
+      </div>
+      <div class="before-after">
+        <img src="google.png" alt="Month 1">
+        <span>Month 1</span>
+        <img src="google.png" alt="Month 8">
+        <span>Month 8</span>
+      </div>
+    </div>
+    <div class="testimonial-text">
+      <p>I’m so glad I decided to start with Traya when I did</p>
+      <span>–Revnath</span>
+    </div>
+  </div>
+
+  <div class="testimonial" onclick="openModal(1)">
+    <div class="video-card">
+      <img src="couple.png" alt="Video 2" class="video-thumbnail">
+      <div class="play-button">&#9658;</div>
+      <div class="views-overlay">
+        <span class="eye-icon">👁</span> 8.4K
+      </div>
+      <div class="before-after">
+        <img src="google.png" alt="Month 1">
+        <span>Month 1</span>
+        <img src="google.png" alt="Month 3">
+        <span>Month 3</span>
+      </div>
+    </div>
+    <div class="testimonial-text">
+      <p>Got my hair volume back thanks to Traya!</p>
+      <span>–Swati</span>
+    </div>
+  </div>
+  
+
+  <div class="testimonial" onclick="openModal(2)">
+    <div class="video-card">
+      <img src="couple.png" alt="Video 3" class="video-thumbnail">
+      <div class="play-button">&#9658;</div>
+      <div class="views-overlay">
+        <span class="eye-icon">👁</span> 81.8K
+      </div>
+      <div class="before-after">
+        <img src="google.png" alt="Month 1">
+        <span>Month 1</span>
+        <img src="google.png" alt="Month 5">
+        <span>Month 5</span>
+      </div>
+    </div>
+    <div class="testimonial-text">
+      <p>Amazing hair volume. Traya works</p>
+      <span>–Pooja</span>
+    </div>
+  </div>
+
+ 
+
+
+<!-- Modal -->
+<div id="videoModal" class="modal">
+  <div class="modal-content">
+    <!-- Top thumbnail strip -->
+    <div class="thumbnail-strip" id="thumbnailStrip"></div>
+
+    <!-- Main video area -->
+    <div class="video-frame">
+      <button class="nav-arrow left" onclick="prevVideo()">&#10094;</button>
+      <video id="modalVideo" controls autoplay></video>
+      <button class="nav-arrow right" onclick="nextVideo()">&#10095;</button>
+    </div>
+
+    <span class="close" onclick="closeModal()">&times;</span>
+  </div>
+</div>
+
+
+      <!-- Add more testimonial-card blocks as needed -->
+    </div>
+  </section>
+  <script>
+  const videos = [
+  { thumb: 'couple.png', src: 'video1.mp4' },
+  { thumb: 'thumb2.jpg', src: 'video2.mp4' },
+  { thumb: 'thumb3.jpg', src: 'video3.mp4' },
+  { thumb: 'thumb4.jpg', src: 'video4.mp4' },
+  // Add more
+];
+
+let currentIndex = 0;
+
+function openModal(index) {
+  currentIndex = index;
+  document.getElementById('videoModal').style.display = 'flex';
+  loadVideo(currentIndex);
+  renderThumbnails();
+}
+
+function closeModal() {
+  const video = document.getElementById('modalVideo');
+  video.pause();
+  video.src = '';
+  document.getElementById('videoModal').style.display = 'none';
+}
+
+function loadVideo(index) {
+  const video = document.getElementById('modalVideo');
+  video.src = videos[index].src;
+}
+
+function prevVideo() {
+  currentIndex = (currentIndex - 1 + videos.length) % videos.length;
+  loadVideo(currentIndex);
+  renderThumbnails();
+}
+
+function nextVideo() {
+  currentIndex = (currentIndex + 1) % videos.length;
+  loadVideo(currentIndex);
+  renderThumbnails();
+}
+
+function renderThumbnails() {
+  const strip = document.getElementById('thumbnailStrip');
+  strip.innerHTML = '';
+  videos.forEach((vid, i) => {
+    const img = document.createElement('img');
+    img.src = vid.thumb;
+    if (i === currentIndex) img.classList.add('active');
+    img.onclick = () => {
+      currentIndex = i;
+      loadVideo(i);
+      renderThumbnails();
+    };
+    strip.appendChild(img);
+  });
+}
+
+  </script>
+
+</body>
+</html>
